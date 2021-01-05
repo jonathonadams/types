@@ -1,7 +1,6 @@
 /**
  * Task monad
  */
-
 export type Fork<E = any, T = any> = (
   rej: (err: E) => void,
   res: (success: T) => void
@@ -19,7 +18,6 @@ export interface TaskMonad<E = any, T = any> {
   ) => TaskMonad<E, K | X>;
 }
 
-// export const Task = <E = any, T = any>(fork: Fork<E, T>) => ({
 export const Task = <E = any, T = any>(fork: Fork<E, T>): TaskMonad<E, T> => ({
   fork, // Nothing happens until you fork it!!!!!
   ap: <K, O>(other: TaskMonad<E, O>) =>

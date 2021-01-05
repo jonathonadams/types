@@ -1,4 +1,3 @@
-import { Id } from './identity';
 import { Task } from './task';
 
 const t1 = Task<void, string>((rej, res) => {
