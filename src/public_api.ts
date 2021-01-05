@@ -12,4 +12,5 @@ export {
   BooleanMonoid,
 } from './monoid';
 export { Task, TaskMonad } from './task';
+export { eitherToTask } from './natural_transforms';
 export { logIt, parseJSON } from './utils';

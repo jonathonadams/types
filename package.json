@@ -3,13 +3,14 @@
   "version": "0.0.0",
   "description": "Functional Programing Types",
   "exports": {
-    "identity": "./lib/identity.js",
-    "either": "./lib/either.js",
-    "task": "./lib/task.js",
-    "utils": "./lib/utils.js",
-    "monoid": "./lib/monoid.js"
+    ".": "./lib/public_api.js",
+    "./identity": "./lib/identity.js",
+    "./either": "./lib/either.js",
+    "./task": "./lib/task.js",
+    "./monoid": "./lib/monoid.js",
+    "./transform": "./lib/natural_transforms.js",
+    "./utils": "./lib/utils.js"
   },
-  "main": "./lib/public_api.js",
   "type": "module",
   "files": [
     "lib"
