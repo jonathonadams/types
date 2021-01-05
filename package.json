@@ -2,6 +2,18 @@
   "name": "@uqt/types",
   "version": "0.0.0",
   "description": "Functional Programing Types",
+  "exports": {
+    "identity": "./lib/identity.js",
+    "either": "./lib/either.js",
+    "task": "./lib/task.js",
+    "utils": "./lib/utils.js",
+    "monoid": "./lib/monoid.js"
+  },
+  "main": "./lib/public_api.js",
+  "type": "module",
+  "files": [
+    "lib"
+  ],
   "scripts": {
     "test": "jest",
     "lint": "eslint --ignore-path ./.gitignore --fix \"./**/*.{js,ts}\"",
@@ -11,17 +23,6 @@
     "format:fix": "pretty-quick --staged",
     "lint-staged": "lint-staged"
   },
-  "exports": {
-    "identity": "./lib/identity.js",
-    "either": "./lib/either.js",
-    "task": "./lib/task.js",
-    "utils": "./lib/utils.js",
-    "monoid": "./lib/monoid.js"
-  },
-  "type": "module",
-  "files": [
-    "lib"
-  ],
   "devDependencies": {
     "@types/node": "^14.14.10",
     "@typescript-eslint/eslint-plugin": "^4.9.0",

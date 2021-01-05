@@ -1,4 +1,4 @@
-export interface EitherMonad<T = any> {
+interface EitherMonad<T = any> {
   isLeft: boolean;
   map: <X = any>(f: (x: T) => X) => EitherMonad<X> | EitherMonad<T>;
   fold: <X = any, K = any>(f: (x: T) => X, g: (x: T) => K) => X | K;
@@ -7,7 +7,7 @@ export interface EitherMonad<T = any> {
   toString: () => string; // inspect
 }
 
-export const Either = (() => {
+const Either = (() => {
   const Right = <R = any>(x: R): EitherMonad<R> => ({
     isLeft: false,
     map: (f) => Right(f(x)),
@@ -44,3 +44,5 @@ export const Either = (() => {
 
   return { Right, Left, of, tryCatch, fromNullable };
 })();
+
+export { Either, EitherMonad };

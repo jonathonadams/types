@@ -1,12 +1,12 @@
 /**
  * Task monad
  */
-export type Fork<E = any, T = any> = (
+type Fork<E = any, T = any> = (
   rej: (err: E) => void,
   res: (success: T) => void
 ) => void;
 
-export interface TaskMonad<E = any, T = any> {
+interface TaskMonad<E = any, T = any> {
   fork: Fork<E, T>;
   ap: <K = any, O = any>(other: TaskMonad<E, O>) => TaskMonad<E, K>;
   map: <K = any>(f: (x: T) => K) => TaskMonad<E, K>;
@@ -18,7 +18,7 @@ export interface TaskMonad<E = any, T = any> {
   ) => TaskMonad<E, K | X>;
 }
 
-export const Task = <E = any, T = any>(fork: Fork<E, T>): TaskMonad<E, T> => ({
+const Task = <E = any, T = any>(fork: Fork<E, T>): TaskMonad<E, T> => ({
   fork, // Nothing happens until you fork it!!!!!
   ap: <K, O>(other: TaskMonad<E, O>) =>
     Task<E, K>((rej, res) =>
@@ -64,3 +64,5 @@ Task.fromPromised = <E, T>(fn: (...args: any[]) => Promise<T>) => (
       .then(res)
       .catch(rej)
   );
+
+export { Task, TaskMonad };

@@ -1,9 +1,10 @@
-export interface Monoid<T> {
+import type { EitherMonad } from './either';
+interface Monoid<T> {
     x: T;
     concat: (f: Monoid<T>) => Monoid<T>;
 }
-export declare type NumberMonoid = Monoid<number>;
-export declare type BooleanMonoid = Monoid<boolean>;
+declare type NumberMonoid = Monoid<number>;
+declare type BooleanMonoid = Monoid<boolean>;
 declare const Product: {
     (x: number): NumberMonoid;
     empty(): NumberMonoid;
@@ -21,4 +22,9 @@ declare const All: {
     empty(): BooleanMonoid;
 };
 declare const Id: <T>(x: T) => T;
-export { Product, Sum, Any, All, Id };
+interface Alternative<T = any> {
+    ex: EitherMonad<T>;
+    concat: <K>(other: Alternative<K>) => Alternative<K> | Alternative<T>;
+}
+declare const Alternative: <T = any>(ex: EitherMonad<T>) => Alternative;
+export { Product, Sum, Any, All, Alternative, Id, Monoid, NumberMonoid, BooleanMonoid, };
