@@ -6,7 +6,7 @@
     "test": "jest",
     "lint": "eslint --ignore-path ./.gitignore --fix \"./**/*.{js,ts}\"",
     "lint:check": "eslint --ignore-path ./.gitignore --quiet \"./**/*.{js,ts}\"",
-    "prebuild": "rm -rf dist",
+    "prebuild": "rm -rf lib",
     "build": "tsc",
     "format:fix": "pretty-quick --staged",
     "lint-staged": "lint-staged"
