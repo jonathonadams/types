@@ -2,16 +2,18 @@
   "compileOnSave": false,
   "compilerOptions": {
     "rootDir": "src",
-    "outDir": "dist",
+    "outDir": "lib",
     "sourceMap": false,
     "declaration": true,
     "moduleResolution": "node",
     "esModuleInterop": true,
     "target": "es2020",
     "module": "esnext",
+    "importsNotUsedAsValues": "error",
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "typeRoots": ["node_modules/@types"]
   },
-  "exclude": ["node_modules", "tmp"]
+  "include": ["**/*.ts", "**/*d.ts"],
+  "exclude": ["lib", "**/*.spec.ts", "**/*.e2e.ts"]
 }
